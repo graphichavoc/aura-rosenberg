@@ -1,6 +1,6 @@
 <template>
   <div class="headbar" :class="{more: main.showMore}">
-    <div class="asterisk" @click="SHOW_MORE">
+    <div class="asterisk" v-bind:class="isBlinking" @click="SHOW_MORE">
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 133.6 134.4" style="enable-background:new 0 0 133.6 134.4;" xml:space="preserve">
         <polygon points="50.9,0 50,47.6 7.9,33.5 0,60.4 42.2,74.9 7.9,116.6 33.1,134.4 65.8,94.3 100.5,134.4 124.9,116.6 91.4,74.9
                   	133.6,61.6 124.9,33.5 83.1,47.6 83.1,0.8 " />
@@ -23,6 +23,9 @@ export default {
     ...mapActions(['SHOW_MORE', 'TOGGLE_TEXTBOX'])
   },
   computed: {
+    isBlinking: function() {
+      return {blinking: !(this.$route.name === 'about' || this.$route.name === 'single')}
+    },
     ...mapState(['main'])
   }
 }
@@ -196,4 +199,33 @@ export default {
     }
   }
 }
+
+/* asterisk update 11/6/20 */
+
+.blinking {
+  animation: blinkingText 1.5s infinite;
+}
+
+@keyframes blinkingText {
+  0% {
+    opacity: 1;
+  }
+
+  49% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  99% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 </style>
