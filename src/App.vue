@@ -149,6 +149,10 @@ i {
       overflow: hidden;
       width: auto;
 
+      img {
+        display: block;   
+      }
+
       .text {
         font-size: $font-size-mob-s;
         line-height: $line-height-mob-s;
