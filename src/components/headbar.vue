@@ -7,7 +7,7 @@
       </svg>
     </div>
     <div class="bar">
-      <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'>Aura Rosenberg</router-link>
+      <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span  @click='navClick'>Aura Rosenberg</span></router-link>
       <router-link v-if='$route.name !== "about"' to="about" class='large-menu'>{{main.info[0].title.rendered}}</router-link>
       <router-link v-if='!main.textbox && $route.name !== "about"' to="about" class='small-menu'>about</router-link>
       <div v-if='main.textbox' @click='TOGGLE_TEXTBOX("")' class='small-close'>close</div>
@@ -20,7 +20,11 @@ import {mapState, mapActions} from 'vuex'
 export default {
   name: 'headbar',
   methods: {
-    ...mapActions(['SHOW_MORE', 'TOGGLE_TEXTBOX'])
+    ...mapActions(['SHOW_MORE', 'TOGGLE_TEXTBOX']),
+    navClick(e) {
+      console.log('clicked')
+      this.TOGGLE_TEXTBOX('')
+    }
   },
   computed: {
     isBlinking: function() {
