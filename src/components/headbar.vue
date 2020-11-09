@@ -22,7 +22,6 @@ export default {
   methods: {
     ...mapActions(['SHOW_MORE', 'TOGGLE_TEXTBOX']),
     navClick(e) {
-      console.log('clicked')
       this.TOGGLE_TEXTBOX('')
     }
   },
@@ -231,5 +230,6 @@ export default {
     opacity: 1;
   }
 }
+
 
 </style>

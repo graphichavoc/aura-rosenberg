@@ -199,4 +199,12 @@ a {
     color: $black;
   }
 }
+
+
+/* move icon update 11/9/20 */
+
+#textbox, #overlay #textbox article {
+  cursor: move !important;
+}
+
 </style>

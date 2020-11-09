@@ -1,6 +1,6 @@
 <template>
   <div @click='overlayClick' id='overlay'>
-    <div id='textbox'>
+    <div id='textbox' class='handle'>
       <div class='handle top'></div>
       <div class='handle bottom'></div>
       <div class='handle left'></div>
