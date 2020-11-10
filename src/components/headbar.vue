@@ -8,9 +8,10 @@
     </div>
     <div class="bar">
       <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span  @click='navClick'>Aura Rosenberg</span></router-link>
-      <router-link v-if='$route.name !== "about"' to="about" class='large-menu'>{{main.info[0].title.rendered}}</router-link>
+      <!-- <router-link v-if='$route.name !== "about"' to="about" class='large-menu'>{{main.info[0].title.rendered}}</router-link> -->
       <router-link v-if='!main.textbox && $route.name !== "about"' to="about" class='small-menu'>about</router-link>
-      <div v-if='main.textbox' @click='TOGGLE_TEXTBOX("")' class='small-close'>close</div>
+      <!-- <div v-if='main.textbox' @click='TOGGLE_TEXTBOX("")' class='small-close'>close</div> -->
+      <router-link v-if='$route.name !== "works"' to="/" class='small-close'>close</router-link>
     </div>
   </div>
 </template>
@@ -27,7 +28,11 @@ export default {
   },
   computed: {
     isBlinking: function() {
-      return {blinking: !(this.$route.name === 'about' || this.$route.name === 'single')}
+      if (this.$route.name === 'about') {
+        return 'hideasterisk'
+      } else {
+        return 'blinking'
+      }
     },
     ...mapState(['main'])
   }
@@ -124,6 +129,9 @@ export default {
     .logo {
       display: inline-block;
     }
+    .small-menu {
+        display: block !important;
+      }
     @include screen-size('medium') {
       .small-menu {
         display: block !important;
@@ -162,26 +170,31 @@ export default {
 .small-menu {
   position: absolute !important;
   right: 0 !important;
-  display: none;
+  display: block;
+  /* display: none;
   @include screen-size('medium') {
     display: block;
   }
+  */
 }
 
 .small-close {
   position: absolute !important;
-  right: 10px !important;
-  top: 11px;
-  display: none !important;
+  right: 0;
+  /* right: 10px !important;
+  top: 11px; */
   color: $green;
+  display: block !important;
 
-  font-size: $font-size-mob-s;
-  line-height: $line-height-mob-s;
+  /* font-size: $font-size-mob-s;
+  line-height: $line-height-mob-s; */
 
   &:hover {
     color: $black;
   }
   cursor: pointer;
+  
+  
   @include screen-size('medium') {
     display: block !important;
   }
@@ -229,6 +242,11 @@ export default {
   100% {
     opacity: 1;
   }
+}
+
+.hideasterisk {
+  opacity: 0;
+  pointer-events: none;
 }
 
 
