@@ -63,6 +63,11 @@ export default {
       msg: 'info'
     }
   },
+  mounted() {
+    if (!this.$store.getters.showMore) {
+      this.$store.dispatch('SHOW_MORE')
+    }
+  },
   computed: {
     ...mapState(['main'])
   },

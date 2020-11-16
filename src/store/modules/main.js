@@ -56,8 +56,15 @@ const mutations = {
   }
 }
 
+const getters = {
+  showMore: function(state) {
+    return state.showMore
+  }
+}
+
 export default {
   state,
   actions,
-  mutations
+  mutations,
+  getters
 }
