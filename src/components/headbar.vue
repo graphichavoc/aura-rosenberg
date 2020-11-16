@@ -7,8 +7,7 @@
       </svg>
     </div>
     <div class="bar">
-      <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span  @click='navClick'>Aura Rosenberg</span></router-link>
-      <!-- <router-link v-if='$route.name !== "about"' to="about" class='large-menu'>{{main.info[0].title.rendered}}</router-link> -->
+      <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span @click='navClick'>Aura Rosenberg</span></router-link>
       <router-link v-if='!main.textbox && $route.name !== "about"' to="about" class='small-menu'>about</router-link>
       <div v-if='main.textbox || ($route.name !== "works" && $route.name !== "single")' class='small-close'><span @click='closeClick'>close</span></div>
     </div>
