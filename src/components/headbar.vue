@@ -22,6 +22,9 @@ export default {
     ...mapActions(['SHOW_MORE', 'TOGGLE_TEXTBOX']),
     navClick(e) {
       this.TOGGLE_TEXTBOX('')
+    },
+    closeClick(e) {
+      window.history.back()
     }
   },
   computed: {
