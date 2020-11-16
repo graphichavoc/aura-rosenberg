@@ -58,8 +58,8 @@ export default {
     font-size: $logo-size;
     font-family: $sans-serif-stack;
     line-height: 18px;
-    top: 2px;
-    left: 20px;
+    top: 6px;
+    left: 22px;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -111,7 +111,7 @@ export default {
     a {
       display: none;
       position: relative;
-      margin-top: 8px;
+      margin-top: 18px;
       margin-right: 9px;
       float: left;
       @include screen-size('medium') {
