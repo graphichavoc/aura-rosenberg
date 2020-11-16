@@ -30,7 +30,7 @@ export default {
   computed: {
     isBlinking: function() {
       if (this.$route.name === 'about') {
-        return 'hideasterisk'
+        return ''
       } else {
         return 'blinking'
       }
