@@ -123,7 +123,7 @@ export default {
     }
   }
   &.more {
-    background: rgba(255, 255, 255, 0.96);
+    background: rgba(255, 255, 255, 0.86);
     .large-menu,
     .logo {
       display: inline-block;

@@ -81,7 +81,7 @@ export default {
     padding-right: 20px;
     padding-bottom: 8px;
     padding-top: 20px;
-    // background: rgba(255, 255, 255, 0.96);
+    // background: rgba(255, 255, 255, 0.86);
     z-index: 20000;
     // overflow: hidden;
     font-size: 14px;
@@ -92,7 +92,7 @@ export default {
     display: flex;
 
     @include screen-size('small') {
-      background: rgba(255, 255, 255, 0.96);
+      background: rgba(255, 255, 255, 0.86);
       color: $black;
       transform: none !important;
     }
