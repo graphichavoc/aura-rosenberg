@@ -137,7 +137,7 @@ export default {
     }
     @include screen-size('small') {
       position: fixed;
-      top: 32px;
+      top: 41px;
       left: 0;
       width: 100vw;
       height: 100vh;

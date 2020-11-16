@@ -49,7 +49,7 @@ export default {
   font-weight: 500;
   z-index: 9;
   position: fixed;
-  height: 32px;
+  height: 41px;
   width: 100vw;
   background: transparent;
   user-select: none;
