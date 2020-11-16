@@ -24,7 +24,11 @@ export default {
       this.TOGGLE_TEXTBOX('')
     },
     closeClick(e) {
-      window.history.back()
+      if (this.$route.name === 'about') {
+        window.history.back()
+      } else {
+        this.TOGGLE_TEXTBOX('')
+      }
     }
   },
   computed: {
