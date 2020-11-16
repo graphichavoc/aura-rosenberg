@@ -10,8 +10,7 @@
       <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span  @click='navClick'>Aura Rosenberg</span></router-link>
       <!-- <router-link v-if='$route.name !== "about"' to="about" class='large-menu'>{{main.info[0].title.rendered}}</router-link> -->
       <router-link v-if='!main.textbox && $route.name !== "about"' to="about" class='small-menu'>about</router-link>
-      <!-- <div v-if='main.textbox' @click='TOGGLE_TEXTBOX("")' class='small-close'>close</div> -->
-      <router-link v-if='$route.name !== "works"' to="/" class='small-close'>close</router-link>
+      <div v-if='main.textbox || ($route.name !== "works" && $route.name !== "single")' class='small-close'><span @click='closeClick'>close</span></div>
     </div>
   </div>
 </template>
