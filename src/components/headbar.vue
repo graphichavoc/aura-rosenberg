@@ -108,7 +108,7 @@ export default {
       padding-left: 42px;
     }
     clear: both;
-    a {
+    a, .small-close {
       display: none;
       position: relative;
       margin-top: 18px;
@@ -127,12 +127,10 @@ export default {
   &.more {
     background: rgba(255, 255, 255, 0.86);
     .large-menu,
-    .logo {
+    .logo, .small-close,
+    a {
       display: inline-block;
     }
-    .small-menu {
-        display: block !important;
-      }
     @include screen-size('medium') {
       .small-menu {
         display: block !important;
@@ -185,7 +183,6 @@ export default {
   /* right: 10px !important;
   top: 11px; */
   color: $green;
-  display: block !important;
 
   /* font-size: $font-size-mob-s;
   line-height: $line-height-mob-s; */
