@@ -74,6 +74,7 @@ export default {
       width: 11px;
       polygon {
         fill: $green;
+        fill: black;
       }
     }
     @include screen-size('medium') {
@@ -221,30 +222,20 @@ export default {
 
 /* asterisk update 11/6/20 */
 
-.blinking {
-  animation: blinkingText 1.5s infinite;
+.blinking { 
+  animation: blinkingText 2.2s infinite;
 }
 
-@keyframes blinkingText {
-  0% {
-    opacity: 1;
-  }
+@keyframes blinkingText {  
+  20% { fill: #000; } 
+  100% { fill: transparent; } 
+  100% { fill: transparent; }
+  52% { fill: transparent; } 
+  100% { fill: #000; }
+}
 
-  49% {
-    opacity: 0;
-  }
-
-  50% {
-    opacity: 0;
-  }
-
-  99% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+.blinking svg polygon {
+  animation: blinkingText 1.5s infinite;
 }
 
 .hideasterisk {
