@@ -79,8 +79,10 @@ export default {
     }
     @include screen-size('medium') {
       left: 15px;
-      top: 2px;
       font-size: $logo-size-mob;
+    }
+    @include screen-size('small') {
+      top: 4px;
     }
     &:hover {
       svg {
@@ -118,12 +120,16 @@ export default {
       display: none;
       position: relative;
       margin-top: 18px;
-      margin-right: 9px;
+      margin-right: 20px;
       float: left;
       @include screen-size('medium') {
         margin-top: 9px;
         font-size: $font-size-mob;
         line-height: $line-height-mob;
+      }
+      @include screen-size('small') {
+        margin-top: 15px;
+        margin-right: 15px;
       }
       &#aura {
         float: left;
