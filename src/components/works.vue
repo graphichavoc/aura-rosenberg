@@ -1,5 +1,5 @@
 <template>
-  <div id='main' class="main">
+  <div id='main' class="main" v-on:scroll.passive="handleScroll" ref="mainDiv">
     <!-- No content in outer -->
     <div class="works">
       <template v-for="item in main.posts">
@@ -35,6 +35,8 @@
 import {mapState, mapActions} from 'vuex'
 import txt from './txt'
 
+window.workScrollX = 0
+
 export default {
   name: 'works',
   components: {
@@ -48,7 +50,13 @@ export default {
       } else {
         e.srcElement.pause()
       }
+    },
+    handleScroll(e) {
+      window.workScrollX = e.target.scrollLeft
     }
+  },
+  mounted: function() {
+    this.$refs['mainDiv'].scrollLeft = window.workScrollX
   },
   computed: {
     ...mapState(['main'])
