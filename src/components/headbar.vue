@@ -8,13 +8,14 @@
     </div>
     <div class="bar">
       <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span @click='navClick'>Aura Rosenberg</span></router-link>
-      <router-link v-if='!main.textbox && $route.name !== "about"' to="about" class='small-menu'>about</router-link>
-      <div v-if='main.textbox || ($route.name !== "works" && $route.name !== "single")' class='small-close'><span @click='closeClick'>close</span></div>
+      <router-link v-if='(!main.textbox && $route.name !== "about") && $route.name !== "single"' to="about" class='small-menu'>about</router-link>
+      <div v-if='main.textbox || ($route.name !== "works")' class='small-close'><span @click='closeClick'>close</span></div>
     </div>
   </div>
 </template>
 
 <script>
+
 import {mapState, mapActions} from 'vuex'
 export default {
   name: 'headbar',
@@ -24,7 +25,7 @@ export default {
       this.TOGGLE_TEXTBOX('')
     },
     closeClick(e) {
-      if (this.$route.name === 'about') {
+      if (this.$route.name === 'about' || this.$route.name === 'single') {
         window.history.back()
       } else {
         this.TOGGLE_TEXTBOX('')
