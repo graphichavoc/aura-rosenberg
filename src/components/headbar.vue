@@ -1,13 +1,15 @@
 <template>
-  <div class="headbar" :class="{more: main.showMore}">
-    <div class="asterisk" v-bind:class="isBlinking" @click="SHOW_MORE">
+  <div class="headbar" :class="{more: main.showMore, about: this.$route.name === 'about'}">
+    <div class="asterisk" v-bind:class="isBlinking" @click="asteriskClick">
       <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 133.6 134.4" style="enable-background:new 0 0 133.6 134.4;width:14px;height:14px" xml:space="preserve">
         <polygon points="50.9,0 50,47.6 7.9,33.5 0,60.4 42.2,74.9 7.9,116.6 33.1,134.4 65.8,94.3 100.5,134.4 124.9,116.6 91.4,74.9
                   	133.6,61.6 124.9,33.5 83.1,47.6 83.1,0.8 " />
       </svg>
     </div>
     <div class="bar">
-      <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span @click='navClick'>Aura Rosenberg</span></router-link>
+      <span class="center">
+        <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span @click='navClick'>Aura Rosenberg</span></router-link>
+      </span>
       <router-link v-if='(!main.textbox && $route.name !== "about") && $route.name !== "single"' to="about" class='small-menu'>about</router-link>
       <div v-if='main.textbox || ($route.name !== "works")' class='small-close'><span @click='closeClick'>close</span></div>
     </div>
@@ -20,8 +22,17 @@ export default {
   name: 'headbar',
   methods: {
     ...mapActions(['SHOW_MORE', 'TOGGLE_TEXTBOX']),
+    asteriskClick(e) {
+      if (this.$route.name === 'about') {
+        e.preventDefault()
+      } else {
+        this.SHOW_MORE('')
+      }
+    },
     navClick(e) {
       this.TOGGLE_TEXTBOX('')
+      this.SHOW_MORE('')
+      document.getElementById('main').scrollLeft = 0
     },
     closeClick(e) {
       if (this.$route.name === 'about' || this.$route.name === 'single') {
@@ -73,7 +84,6 @@ export default {
       width: 11px;
       polygon {
         fill: $green;
-        fill: black;
       }
     }
     @include screen-size('medium') {
@@ -110,10 +120,6 @@ export default {
   }
   .bar {
     width: 100vw;
-    padding-left: 45px;
-    @include screen-size('medium') {
-      padding-left: 42px;
-    }
     clear: both;
     a, .small-close {
       display: none;
@@ -227,25 +233,40 @@ export default {
 
 /* asterisk update 11/6/20 */
 
-.blinking { 
-  animation: blinkingText 2.2s infinite;
-}
 
 @keyframes blinkingText {  
-  20% { fill: #000; } 
+  20% { fill: $green; } 
   100% { fill: transparent; } 
   100% { fill: transparent; }
   52% { fill: transparent; } 
-  100% { fill: #000; }
+  100% { fill: $green; }
 }
 
 .blinking svg polygon {
   animation: blinkingText 1.5s infinite;
 }
 
+.blinking:hover svg polygon {
+  animation: none !important;
+}
+
 .hideasterisk {
   opacity: 0;
   pointer-events: none;
+}
+
+.about .asterisk {
+  pointer-events: none;
+}
+
+.center {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+
+.headbar .bar a#aura {
+  float: none;
 }
 
 
