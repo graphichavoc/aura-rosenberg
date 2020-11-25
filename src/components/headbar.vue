@@ -31,6 +31,9 @@ export default {
     },
     navClick(e) {
       var main = document.getElementById('main')
+      if (main) {
+        document.getElementById('main').scrollLeft = 0
+      }
       if (main && main.classList.contains('textbox')) {
         this.TOGGLE_TEXTBOX('')
       }
