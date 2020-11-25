@@ -30,9 +30,12 @@ export default {
       }
     },
     navClick(e) {
-      this.TOGGLE_TEXTBOX('')
+      var main = document.getElementById('main')
+      if (main && main.classList.contains('textbox')) {
+        this.TOGGLE_TEXTBOX('')
+      }
       this.SHOW_MORE('')
-      document.getElementById('main').scrollLeft = 0
+      window.workScrollX = 0
     },
     closeClick(e) {
       if (this.$route.name === 'about' || this.$route.name === 'single') {
