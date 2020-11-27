@@ -10,16 +10,25 @@
       <span class="center">
         <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span @click='navClick'>Aura Rosenberg</span></router-link>
       </span>
-      <router-link v-if='(!main.textbox && $route.name !== "about") && $route.name !== "single"' to="about" class='small-menu'>about</router-link>
-      <div v-if='main.textbox || ($route.name !== "works")' class='small-close'><span @click='closeClick'>close</span></div>
+      <router-link :key="isMobile" v-if='(!isMobile && main.textbox) || ((!main.textbox && $route.name !== "about") && $route.name !== "single")' to="about" class='small-menu'>about</router-link>
+      <div v-if='(isMobile && main.textbox) || ($route.name !== "works")' class='small-close'><span @click='closeClick'>close</span></div>
     </div>
   </div>
 </template>
 
 <script>
 import {mapState, mapActions} from 'vuex'
+
+var sizeQuery = window.matchMedia('(max-width: 700px)')
+
 export default {
   name: 'headbar',
+  created() {
+    sizeQuery.addListener(this.updateMobileCheck)
+  },
+  destroyed() {
+    sizeQuery.removeListener(this.updateMobileCheck)
+  },
   methods: {
     ...mapActions(['SHOW_MORE', 'TOGGLE_TEXTBOX']),
     asteriskClick(e) {
@@ -46,6 +55,9 @@ export default {
       } else {
         this.TOGGLE_TEXTBOX('')
       }
+    },
+    updateMobileCheck() {
+      this.isMobile = sizeQuery.matches
     }
   },
   computed: {
@@ -57,6 +69,11 @@ export default {
       }
     },
     ...mapState(['main'])
+  },
+  data() {
+    return {
+      isMobile: sizeQuery.matches
+    }
   }
 }
 </script>
@@ -156,7 +173,7 @@ export default {
     }
     @include screen-size('medium') {
       .small-menu {
-        display: block !important;
+        /* display: block !important; */
       }
     }
   }
@@ -217,7 +234,7 @@ export default {
   
   
   @include screen-size('medium') {
-    display: block !important;
+    /* display: block !important; */
   }
 
   @include screen-size('small') {
