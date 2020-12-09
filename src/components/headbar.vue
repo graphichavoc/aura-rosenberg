@@ -209,6 +209,7 @@ export default {
 .small-menu {
   position: absolute !important;
   right: 0 !important;
+  top: 0 !important;
   display: block;
   /* display: none;
   @include screen-size('medium') {
@@ -220,6 +221,7 @@ export default {
 .small-close {
   position: absolute !important;
   right: 0;
+  top: 0 !important;
   /* right: 10px !important;
   top: 11px; */
   color: $green;
