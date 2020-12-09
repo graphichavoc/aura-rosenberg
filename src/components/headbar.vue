@@ -64,6 +64,8 @@ export default {
     isBlinking: function() {
       if (this.$route.name === 'about') {
         return ''
+      } else if (this.main.textbox && this.isMobile) {
+        return ''
       } else {
         return 'blinking'
       }
