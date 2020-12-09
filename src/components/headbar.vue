@@ -10,7 +10,7 @@
       <span class="center">
         <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span @click='navClick'>Aura Rosenberg</span></router-link>
       </span>
-      <router-link :key="isMobile" v-if='(!isMobile && main.textbox) || ((!main.textbox && $route.name !== "about") && $route.name !== "single")' to="about" class='small-menu'>about</router-link>
+      <router-link :key="isMobile" v-if='($route.name == "works" && !isMobile) || ($route.name == "works" && !main.textbox && isMobile)' to="about" class='small-menu'>about</router-link>
       <div v-if='(isMobile && main.textbox) || ($route.name !== "works")' class='small-close'><span @click='closeClick'>close</span></div>
     </div>
   </div>
