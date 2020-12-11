@@ -52,6 +52,9 @@ export default {
     closeClick(e) {
       if (this.$route.name === 'about' || this.$route.name === 'single') {
         window.history.back()
+        if (this.main.textbox) {
+          this.TOGGLE_TEXTBOX('')
+        }
       } else {
         this.TOGGLE_TEXTBOX('')
       }
