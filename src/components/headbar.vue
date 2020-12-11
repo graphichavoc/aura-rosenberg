@@ -47,6 +47,9 @@ export default {
         this.TOGGLE_TEXTBOX('')
       }
       this.SHOW_MORE('')
+      if (this.main.textbox) {
+        this.TOGGLE_TEXTBOX('')
+      }
       window.workScrollX = 0
     },
     closeClick(e) {
