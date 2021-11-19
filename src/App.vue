@@ -108,7 +108,7 @@ i {
       height: 42px;
       line-height: 24px;
       padding: 4px 0 0 $margin-sides;
-      background: rgba(255, 255, 255, 0.9);
+      background: rgba(255, 255, 255, 0);
       z-index: 3;
       color: $black;
       width: 100%;

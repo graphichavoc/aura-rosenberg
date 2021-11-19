@@ -63,3 +63,11 @@ export default {
   }
 }
 </script>
+
+<style>
+
+.work a, .work .pseudo-link {
+  padding: 22px 0;
+}
+
+</style>

@@ -8,10 +8,10 @@
     </div>
     <div class="bar">
       <span class="center">
-        <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span @click='navClick'>Aura Rosenberg</span></router-link>
+        <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span class='click-area' @click='navClick'>Aura Rosenberg</span></router-link>
       </span>
       <router-link :key="isMobile" v-if='($route.name == "works" && !isMobile) || ($route.name == "works" && !main.textbox && isMobile)' to="about" class='small-menu'>about</router-link>
-      <div v-if='(isMobile && main.textbox) || ($route.name !== "works")' class='small-close'><span @click='closeClick'>close</span></div>
+      <div v-if='(isMobile && main.textbox) || ($route.name !== "works")' class='small-close' @click='closeClick'><span>close</span></div>
     </div>
   </div>
 </template>
@@ -19,7 +19,7 @@
 <script>
 import {mapState, mapActions} from 'vuex'
 
-var sizeQuery = window.matchMedia('(max-width: 700px)')
+var sizeQuery = window.matchMedia('(max-width: 640px)')
 
 export default {
   name: 'headbar',
@@ -104,12 +104,14 @@ export default {
     font-size: $logo-size;
     font-family: $sans-serif-stack;
     line-height: 18px;
-    top: 6px;
-    left: 22px;
+    top: 5px;
+    left: 0px;
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 22px;
+    cursor: pointer;
     svg {
       height: 11px;
       width: 11px;
@@ -118,11 +120,13 @@ export default {
       }
     }
     @include screen-size('medium') {
-      left: 15px;
+      left: -3px;
       font-size: $logo-size-mob;
     }
     @include screen-size('small') {
-      top: 4px;
+      top: 3px; 
+      left: -7px;
+      font-size: $logo-size-mob;
     }
     &:hover {
       svg {
@@ -149,31 +153,42 @@ export default {
       }
     }
   }
+  .asterisk:hover svg {
+    polygon {
+      fill: $black;
+    }
+  }
   .bar {
     width: 100vw;
     clear: both;
     a, .small-close {
       display: none;
       position: relative;
-      margin-top: 18px;
-      margin-right: 20px;
+      margin-top: -4px;
+      margin-right: -2px;
+      padding: 22px;
       float: left;
       @include screen-size('medium') {
-        margin-top: 9px;
+        margin-top: -4px;
         font-size: $font-size-mob;
         line-height: $line-height-mob;
       }
       @include screen-size('small') {
-        margin-top: 15px;
-        margin-right: 15px;
+        margin-top: -7px;
       }
       &#aura {
         float: left;
       }
     }
+    .small-close, .small-menu {
+      margin-right: -2px;
+      @include screen-size('small') {
+        margin-right: -7px;
+      }
+    }
   }
   &.more {
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0);
     .large-menu,
     .logo, .small-close,
     a {
@@ -300,6 +315,16 @@ export default {
 
 .headbar .bar a#aura {
   float: none;
+}
+
+@media only screen and (max-width: 640px) {
+  .has-textbox .headbar.more {
+    background: rgba(255, 255, 255, 0.9);
+  } 
+}
+
+.click-area {
+  padding: 22px;
 }
 
 
