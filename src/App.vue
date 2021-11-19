@@ -70,8 +70,8 @@ i {
 
 #app {
   font-family: $serif-stack;
-  font-size: 15px;
-  line-height: 20px;
+  font-size: 17px;
+  line-height: 21px;
   color: $black;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
