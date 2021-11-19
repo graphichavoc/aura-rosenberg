@@ -105,7 +105,7 @@ i {
     .text {
       position: absolute;
       bottom: 0;
-      height: 42px;
+      height: 52px;
       line-height: 24px;
       padding: 4px 0 0 $margin-sides;
       background: rgba(255, 255, 255, 0);
