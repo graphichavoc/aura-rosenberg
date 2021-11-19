@@ -94,7 +94,7 @@ export default {
   position: fixed;
   bottom: 0;
   width: 100vw;
-  height: calc(100vh - 32px);
+  height: calc(100vh - 41px);
   overflow: hidden;
   @include screen-size('medium') {
     overflow-y: scroll;
@@ -110,7 +110,7 @@ export default {
 
 .column {
   width: 33vw;
-  height: calc(100vh - 32px);
+  height: calc(100vh - 41px);
   float: left;
   overflow: hidden;
   @include screen-size('medium') {
