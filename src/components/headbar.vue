@@ -1,7 +1,7 @@
 <template>
   <div class="headbar" :class="{more: main.showMore, about: this.$route.name === 'about'}">
     <div class="asterisk" v-bind:class="isBlinking" @click="asteriskClick">
-      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 133.6 134.4" style="enable-background:new 0 0 133.6 134.4;width:14px;height:14px" xml:space="preserve">
+      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 133.6 134.4" style="enable-background:new 0 0 133.6 134.4;" xml:space="preserve">
         <polygon points="50.9,0 50,47.6 7.9,33.5 0,60.4 42.2,74.9 7.9,116.6 33.1,134.4 65.8,94.3 100.5,134.4 124.9,116.6 91.4,74.9
                   	133.6,61.6 124.9,33.5 83.1,47.6 83.1,0.8 " />
       </svg>
@@ -113,8 +113,8 @@ export default {
     padding: 22px;
     cursor: pointer;
     svg {
-      height: 11px;
-      width: 11px;
+      height: 15px;
+      width: 15px;
       polygon {
         fill: $green;
       }
@@ -122,11 +122,19 @@ export default {
     @include screen-size('medium') {
       left: -3px;
       font-size: $logo-size-mob;
-    }
+      svg {
+          height: 11px;
+          width: 11px;
+        }
+      }
     @include screen-size('small') {
-      top: 3px; 
+      top: 3px;
       left: -7px;
       font-size: $logo-size-mob;
+      svg {
+        height: 11px;
+        width: 11px;
+      }
     }
     &:hover {
       svg {
@@ -192,6 +200,7 @@ export default {
     .large-menu,
     .logo, .small-close,
     a {
+      cursor: pointer;
       display: inline-block;
     }
     @include screen-size('medium') {
@@ -256,8 +265,8 @@ export default {
     color: $black;
   }
   cursor: pointer;
-  
-  
+
+
   @include screen-size('medium') {
     /* display: block !important; */
   }
@@ -282,11 +291,11 @@ export default {
 /* asterisk update 11/6/20 */
 
 
-@keyframes blinkingText {  
-  20% { fill: $green; } 
-  100% { fill: transparent; } 
+@keyframes blinkingText {
+  20% { fill: $green; }
   100% { fill: transparent; }
-  52% { fill: transparent; } 
+  100% { fill: transparent; }
+  52% { fill: transparent; }
   100% { fill: $green; }
 }
 
@@ -320,7 +329,7 @@ export default {
 @media only screen and (max-width: 640px) {
   .has-textbox .headbar.more {
     background: rgba(255, 255, 255, 0.9);
-  } 
+  }
 }
 
 .click-area {

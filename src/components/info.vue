@@ -3,6 +3,13 @@
 
     <div class="column">
       <div class="inner left">
+        <p class="title">Ongoing/Upcoming</p>
+        <table class="ongoing">
+          <tr v-for="item in main.info[0].acf.ongoing">
+            <td v-html="item.text"></td>
+          </tr>
+        </table>
+
         <p class="title">Solo Exhibitions</p>
         <table class="list">
           <tr v-for="item in main.info[0].acf.solo_exhibitions">
@@ -22,12 +29,13 @@
 
     <div class="column">
       <div class="inner mid">
-        <p class="title">Projects</p>
-        <table class="publications" v-for="item in main.info[0].acf.projects">
-          <tr v-html="item.text"></tr>
-        </table>
         <p class="title">Publications</p>
         <table class="publications" v-for="item in main.info[0].acf.publications">
+          <tr v-html="item.text"></tr>
+        </table>
+
+        <p class="title">Projects</p>
+        <table class="publications" v-for="item in main.info[0].acf.projects">
           <tr v-html="item.text"></tr>
         </table>
       </div>
@@ -35,12 +43,6 @@
 
     <div class="column">
       <div class="inner right">
-        <p class="title">Ongoing/Upcoming</p>
-        <table class="ongoing">
-          <tr v-for="item in main.info[0].acf.ongoing">
-            <td v-html="item.text"></td>
-          </tr>
-        </table>
         <p class="title">Links</p>
         <table class="links" v-for="item in main.info[0].acf.links">
           <tr>

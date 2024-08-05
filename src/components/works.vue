@@ -12,7 +12,7 @@
             <span v-if='image.caption.length > 1' v-html="image.caption"></span>
             <!-- Show "more images" link if the post has multiple images -->
             <span v-if='item.acf.images.length > 1'>
-              (<router-link :to='item.slug'>more images</router-link>)
+              (<router-link :to='item.slug'>more</router-link>)
             </span>
             <!-- Show "text" link if the post has a text field & a download link -->
             <span v-if='image.text && image.download'>

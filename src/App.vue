@@ -172,10 +172,10 @@ i {
 
 strong {
   color: $green;
-  opacity: 0.7;
 }
 
 a {
+  cursor: pointer;
   color: $green;
   text-decoration: none;
   &:active {
