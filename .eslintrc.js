@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   parserOptions: {
-    sourceType: 'module'
+    sourceType: 'module',
   },
   // https://github.com/feross/standard/blob/master/RULES.md#javascript-standard-style
   extends: 'standard',
@@ -20,6 +20,7 @@ module.exports = {
     'no-unused-vars': 1,
     // to avoid conflict between prettier formatter and standard js linter
     // ref. https://github.com/prettier/prettier/issues/1139
-    'space-before-function-paren': 0
-  }
+    'space-before-function-paren': 0,
+    'comma-dangle': 0,
+  },
 }

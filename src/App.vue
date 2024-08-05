@@ -42,9 +42,9 @@ export default {
 @import './style/helpers/_mixins.scss';
 @import './style/helpers/_responsive.scss';
 @import './style/helpers/_reset.css';
-@import './assets/fonts/serif-regular.css';
-@import './assets/fonts/serif-bold.css';
-@import './assets/fonts/serif-italic.css';
+@import './assets/fonts/serif-Regular.css';
+@import './assets/fonts/serif-Bold.css';
+@import './assets/fonts/serif-Italic.css';
 @import './style/_variables.scss';
 
 html {
@@ -150,7 +150,7 @@ i {
       width: auto;
 
       img {
-        display: block;   
+        display: block;
       }
 
       .text {

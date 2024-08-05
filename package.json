@@ -1,5 +1,5 @@
 {
-  "name": "test",
+  "name": "aura-rosenberg",
   "version": "1.0.0",
   "description": "A Vue.js project",
   "author": "pwrstudio <pwrpntr@gmail.com>",
@@ -16,7 +16,6 @@
     "babel-polyfill": "^6.23.0",
     "interactjs": "^1.2.9",
     "mobile-detect": "^1.4.1",
-    "node-sass": "^6.0.1",
     "raven-js": "^3.19.1",
     "vue": "^2.5.3",
     "vue-head": "^2.0.10",
@@ -74,7 +73,8 @@
     "opn": "^4.0.2",
     "ora": "^0.3.0",
     "phantomjs-prebuilt": "^2.1.16",
-    "sass-loader": "^4.0.2",
+    "sass": "^1.77.8",
+    "sass-loader": "^7",
     "selenium-server": "2.53.1",
     "semver": "^5.3.0",
     "shelljs": "^0.7.4",
@@ -92,5 +92,8 @@
   "engines": {
     "node": ">= 4.0.0",
     "npm": ">= 3.0.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^1.0.0"
   }
 }
