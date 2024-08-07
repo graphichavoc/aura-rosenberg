@@ -326,12 +326,6 @@ export default {
   float: none;
 }
 
-@media only screen and (max-width: 640px) {
-  .has-textbox .headbar.more {
-    background: rgba(255, 255, 255, 0.9);
-  }
-}
-
 .click-area {
   padding: 22px;
 }

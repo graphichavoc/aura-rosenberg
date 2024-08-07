@@ -137,7 +137,8 @@ export default {
     }
     @include screen-size('small') {
       position: fixed;
-      top: 41px;
+      padding-top: 61px;
+      top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
@@ -164,7 +165,7 @@ export default {
         display: none;
       }
     }
-  } 
+  }
 }
 
 .handle {
