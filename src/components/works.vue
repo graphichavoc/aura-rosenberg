@@ -5,7 +5,7 @@
       <template v-for="item in main.posts">
         <div v-for="image in item.acf.images.filter((e) => e.show_on_frontpage)" class="work">
           <!-- Content -->
-          <video v-if='image.video.url' @click='toggleVideo' :src='image.video.url' preload="auto" autoplay muted loop playsinline></video>
+          <video v-if='image.video.url' @click='toggleVideo' :src='image.video.url' preload="auto" muted loop playsinline ref="videos"></video>
           <img v-else-if='image.image.sizes' :src='image.image.sizes["pwr-large"]' :width='image.image.sizes["pwr-large-width"]' :height='image.image.sizes["pwr-large-height"]'>
           <!-- Caption -->
           <div class="text" v-if="main.showMore">
@@ -53,6 +53,18 @@ export default {
     },
     handleScroll(e) {
       window.workScrollX = e.target.scrollLeft
+
+      this.$refs.videos.forEach(v => {
+        const { x, width } = v.getBoundingClientRect()
+
+        if (x - window.innerWidth <= 0 && x + width >= 0) {
+          if (v.paused) {
+            v.play()
+          }
+        } else {
+          v.pause()
+        }
+      })
     },
   },
   mounted: function() {
