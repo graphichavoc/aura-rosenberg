@@ -7,64 +7,64 @@ const state = {
   info: [
     {
       title: {
-        rendered: ''
+        rendered: '',
       },
       acf: {
         solo_exhibitions: [],
         group_exhibitions: [],
         ongoing: [],
         publications: [],
-        links: []
-      }
-    }
+        links: [],
+      },
+    },
   ],
-  showMore: false,
+  showMore: true,
   textbox: false,
   textConent: '',
-  textDownload: ''
+  textDownload: '',
 }
 
 const actions = {
-  [actionTypes.SHOW_MORE] ({ commit, state }) {
+  [actionTypes.SHOW_MORE]({ commit, state }) {
     commit(mutationTypes.SET_MORE)
   },
-  [actionTypes.TOGGLE_TEXTBOX] ({ commit, state }, data) {
+  [actionTypes.TOGGLE_TEXTBOX]({ commit, state }, data) {
     commit(mutationTypes.SET_TEXTBOX, data)
   },
-  async [actionTypes.GET_POSTS] ({ commit, state }) {
+  async [actionTypes.GET_POSTS]({ commit, state }) {
     commit(mutationTypes.SET_POSTS, await api.getPosts())
   },
-  async [actionTypes.GET_INFO] ({ commit, state }) {
+  async [actionTypes.GET_INFO]({ commit, state }) {
     commit(mutationTypes.SET_INFO, await api.getInfo())
-  }
+  },
 }
 
 const mutations = {
-  [mutationTypes.SET_MORE] (state) {
+  [mutationTypes.SET_MORE](state) {
     state.showMore = !state.showMore
   },
-  [mutationTypes.SET_POSTS] (state, data) {
+  [mutationTypes.SET_POSTS](state, data) {
     state.posts = data
   },
-  [mutationTypes.SET_INFO] (state, data) {
+  [mutationTypes.SET_INFO](state, data) {
     state.info = data
   },
-  [mutationTypes.SET_TEXTBOX] (state, data) {
+  [mutationTypes.SET_TEXTBOX](state, data) {
     state.textbox = !state.textbox
     state.textContent = data.content
     state.textDownload = data.download
-  }
+  },
 }
 
 const getters = {
-  showMore: function(state) {
+  showMore: function (state) {
     return state.showMore
-  }
+  },
 }
 
 export default {
   state,
   actions,
   mutations,
-  getters
+  getters,
 }

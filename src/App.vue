@@ -200,6 +200,11 @@ a {
   }
 }
 
+.bg-link {
+  background-color: #fdfff9;
+  display: inline-block;
+  padding: 0px 6px;
+}
 
 /* move icon update 11/9/20 */
 

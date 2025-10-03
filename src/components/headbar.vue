@@ -8,10 +8,18 @@
     </div>
     <div class="bar">
       <span class="center">
-        <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'><span class='click-area' @click='navClick'>Aura Rosenberg</span></router-link>
+        <router-link to="/" id="aura" class='logo' :class='{hide: main.textbox}'>
+          <span class='click-area' @click='navClick'>
+            <span class="bg-link">Aura Rosenberg</span>
+          </span>
+        </router-link>
       </span>
-      <router-link :key="isMobile" v-if='($route.name == "works" && !isMobile) || ($route.name == "works" && !main.textbox && isMobile)' to="about" class='small-menu'>about</router-link>
-      <div v-if='(isMobile && main.textbox) || ($route.name !== "works")' class='small-close' @click='closeClick'><span>close</span></div>
+      <router-link :key="isMobile" v-if='($route.name == "works" && !isMobile) || ($route.name == "works" && !main.textbox && isMobile)' to="about" class='small-menu'>
+        <span class="bg-link">about</span>
+      </router-link>
+      <div v-if='(isMobile && main.textbox) || ($route.name !== "works")' class='small-close' @click='closeClick'>
+        <span class="bg-link">close</span>
+      </div>
     </div>
   </div>
 </template>
@@ -329,6 +337,5 @@ export default {
 .click-area {
   padding: 22px;
 }
-
 
 </style>

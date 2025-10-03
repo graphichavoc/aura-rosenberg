@@ -9,18 +9,18 @@
           <img v-else-if='image.image.sizes' :src='image.image.sizes["pwr-large"]' :width='image.image.sizes["pwr-large-width"]' :height='image.image.sizes["pwr-large-height"]'>
           <!-- Caption -->
           <div class="text" v-if="main.showMore">
-            <span v-if='image.caption.length > 1' v-html="image.caption"></span>
+            <span v-if='image.caption.length > 1' v-html="image.caption" class="bg-link"></span>
             <!-- Show "more images" link if the post has multiple images -->
             <span v-if='item.acf.images.length > 1'>
-              (<router-link :to='item.slug'>more</router-link>)
+              <span class="bg-link">(<router-link :to='item.slug'>more</router-link>)</span>
             </span>
             <!-- Show "text" link if the post has a text field & a download link -->
             <span v-if='image.text && image.download'>
-              (<span @click='TOGGLE_TEXTBOX({content: image.text, download: image.download.url})' class='pseudo-link'>text</span>)
+              <span class="bg-link">(<span @click='TOGGLE_TEXTBOX({content: image.text, download: image.download.url})' class='pseudo-link'>text</span>)</span>
             </span>
             <!-- Show "text" link if the post has a text field BUT NO download link -->
             <span v-else-if='image.text'>
-              (<span @click='TOGGLE_TEXTBOX({content: image.text, download: ""})' class='pseudo-link'>text</span>)
+              <span class="bg-link">(<span @click='TOGGLE_TEXTBOX({content: image.text, download: ""})' class='pseudo-link'>text</span>)</span>
             </span>
           </div>
         </div>

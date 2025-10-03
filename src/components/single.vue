@@ -7,11 +7,19 @@
         <img v-else-if='item.image.sizes' :src='item.image.sizes["pwr-large"]'>
         <!-- Caption -->
         <div class="text" v-if="main.showMore">
-          <span v-html="item.caption"></span>
+          <span v-html="item.caption" class="bg-link"></span>
           <!-- Show "text" link if the post has a text field & a download link -->
-          <span v-if='item.text && item.download'>(<span @click='TOGGLE_TEXTBOX({content: item.text, download: item.download.url})' class='pseudo-link'>text</span>)</span>
+          <span v-if='item.text && item.download'>
+            <span class="bg-link">
+              (<span @click='TOGGLE_TEXTBOX({content: item.text, download: item.download.url})' class='pseudo-link'>text</span>)
+            </span>
+          </span>
           <!-- Show "text" link if the post has a text field BUT NO download link -->
-          <span v-else-if='item.text'>(<span @click='TOGGLE_TEXTBOX({content: item.text, download: ""})' class='pseudo-link'>text</span>)</span>
+          <span v-else-if='item.text'>
+            <span class="bg-link">
+              (<span @click='TOGGLE_TEXTBOX({content: item.text, download: ""})' class='pseudo-link'>text</span>)
+            </span>
+          </span>
         </div>
       </div>
     </div>
